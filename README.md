@@ -1,6 +1,6 @@
-# A Java Program / Project
+# A JDBC client Program / Project
 
-**This is a Java project from my early days as a Computer Science student**
+**This is a jdbc client project from my early days as a Computer Science student**
 
 _This programm was created for the fourth semester class Data Bases 
 and is the final project for the class_
@@ -9,7 +9,14 @@ and is the final project for the class_
 >
 >>A jdbc application that runs queries in pgAdmin to simulate the functionality of a hospital's database.
 
-> #### Functionality and Impementation of project
+> #### Functionality of project
+>
+> 1. The database saves information about the hospital's doctors of a variety of departments
+> 2. The doctors' information are (name, surname, specialty, contact information, department code, etc.)
+> 3. The hospital's patients and their information (name, surname, contact information, etc.)
+> 4. 
+
+> #### Impementation of project
 >
 > 1. Uses the application server Tomcat
 > 2. Uses the database server pgAdmin
