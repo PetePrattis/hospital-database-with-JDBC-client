@@ -12,22 +12,31 @@ and is the final project for the class_
 > #### Functionality of project
 >
 > 1. The database saves information about the hospital's doctors of a variety of departments
-> 2. The doctors' information are (name, surname, specialty, contact information, department code, etc.)
-> 3. The hospital's patients and their information (name, surname, contact information, etc.)
-> 4. 
+> 2. The database saves doctors' information are (name, surname, specialty, contact information, department code, etc.)
+> 3. The database saves the hospital's patients and their information (name, surname, contact information, etc.)
+> 4. The database saves the appointments and the diagnosis for each patient and information and date about them
+> 5. The database saves each patient's medical record, including treatments and prescription drugs
+> 6. There is a predetermined dataset used for this project
 
 > #### Impementation of project
 >
-> 1. Uses the application server Tomcat
-> 2. Uses the database server pgAdmin
-> 3. It is a dynamic web project
-> 4. Includes the sql code for the Entity-Relationship Model, which describes the Database
-> 5. A class package with all servlets
-> 5. Uses dynamic jsp pages
-> 6. The JDBC connection method is pool
+> 1. Design the relational scheme of the database and implement the creation queries in the PostgreSQL DMBS
+> 2. Apply the normalization theory to the relational scheme of the DB to check if it follows 3NF or BCNF
+> 3. Insert the data from the given dataset using proper queries
+> 4. Implement some functionality using proper queries:
+>> a. What are the drugs (maximum and minimum number) prescribed
+>> b. What are the diagnoses of the last week
+>> c. What are the doctor's 'X' appointments last month
+>> d. Who are the patients who have seen more than one doctor
+>> e. From what department have most patients been examined
+>> f. What is the average number of patients examined per department
+> 5. Implement some functionality using triggers:
+
+
 
 > #### About this project
 >
+> - There is a predetermined dataset used for this project
 > - The comments to make the code understandable, are within the archives
 > - This project was written in Eclipse Java IDE
 > - This repository was created to show the variety of the work I did and experience I gained as a student
