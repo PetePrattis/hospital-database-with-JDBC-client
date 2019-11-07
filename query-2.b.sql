@@ -1,7 +1,7 @@
-select a.diagnosis, a.t as date -- βρίσκει τις διαγνώσεις και τις ημερομηνίες
-from appointments a, medicalfolders m -- απο τους πίνακες appointments και medicalfolders
-where a.patientamka=m.patientamka -- όπου το αμκα ενός ασθενή απο τον πίνακα a αντιστοιχίζεται σε αμκα του πίνακα m
-and a.diagnosis is not null-- και η διάγνωση στον πίνακα a για αυτό το αμκα δεν είναι κενή
-and a.t > (select date(max(t))from appointments) - integer '7' -- και η ημερομηνία στον πίνακα a για αυτό το άμκα είναι μέχρι 7 μέρες πριν από την πιο πρόσφατη ημερομηνία
---and a.t>date '2017-05-01' - integer '7' -- ή χειροκίνητα ορίζω ποια είναι η τελευταία ημερομηνία
---and a.t>current_date-7 -- ή μεχρι 7 μέρες πριν την σημερινή μας ημερομηνία
+select a.diagnosis, a.t as date -- finds diagnoses and dates
+from appointments a, medicalfolders m -- from the appointments and medicalfolders tables
+where a.patientamka=m.patientamka -- where the patient's amp of table a corresponds to the amp of table m
+and a.diagnosis is not null-- and the diagnosis in table a for this abca is not empty
+and a.t > (select date(max(t))from appointments) - integer '7' -- and the date in table a for this code(amka) is up to 7 days before the most recent date
+--and a.t>date '2017-05-01' - integer '7' -- or manually specify what is the last date
+--and a.t>current_date-7 --or up to 7 days before our current date
