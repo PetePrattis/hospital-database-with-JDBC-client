@@ -1,15 +1,15 @@
-select c.name as most_visited_departments from -- βρίσκει το όνομα από
-(select dp.name as name, count(a.id) as cnt-- την εύρεση  του ονόματος και του πλήθους των id 
-from appointments a, doctors d, departments dp -- από τους πίνακες a, d, dp
-where a.doctoramka=d.doctoramka and d.specialty=dp.id -- με τα αμκα των γιατρών να αντιστοιχίζονται στους πίνακες a, d και το ίδιο και η ειδικότητα στους πίνακες d, dp
-and a.diagnosis is not null -- και η διάγνωση  από τον πίνακα a να μην είναι κενή
-group by dp.name) c -- ανά ονομασία τμήματος στον νέο πίνακα c που έχει τα ονόματα και τα αθροίσματα των ιατρών του εκάστοτε τμήματος
-where c.cnt= (select max(e.cnt) from --όπου το πλήθος είναι ίσο με την επιλογή του μαξ από
-(select dp.name as name, count(a.id) as cnt--την εύρεση του ονοματος του τμήματος και το πλήθος από γιατρούς του εκάστοτε τμήματος
-from appointments a, doctors d, departments dp --απο τους πίνακες a, d, dp
+select c.name as most_visited_departments from -- finds the name from
+(select dp.name as name, count(a.id) as cnt-- finding the name and number of ids
+from appointments a, doctors d, departments dp -- from tables a, d, dp
+where a.doctoramka=d.doctoramka and d.specialty=dp.id -- with the physicians' codes(amka) being assigned to tables a, d and so is the specialty to tables d, dp
+and a.diagnosis is not null -- and the diagnosis from table a is not empty
+group by dp.name) c -- per department name in the new table c containing the names and totals of the doctors in each department
+where c.cnt= (select max(e.cnt) from --where the crowd is equal to the selection of max
+(select dp.name as name, count(a.id) as cnt--finding the name of the ward and the number of doctors in the ward
+from appointments a, doctors d, departments dp --from tables a, d, dp
 where a.doctoramka=d.doctoramka and d.specialty=dp.id
 and a.diagnosis is not null
-group by dp.name) e -- ανά ονομασία τμήματος στον νέο πίνακα e που έχει τα ονόματα και τα πλήθη των ιατρών του εκάστοτε τμήματος
+group by dp.name) e -- per department name in the new table e containing the names and numbers of doctors in each department
 )              
 
 
