@@ -24,13 +24,18 @@ and is the final project for the class_
 > 2. Apply the normalization theory to the relational scheme of the DB to check if it follows 3NF or BCNF
 > 3. Insert the data from the given dataset using proper queries
 > 4. Implement some functionality using proper queries:
->> a. What are the drugs (maximum and minimum number) prescribed
->> b. What are the diagnoses of the last week
->> c. What are the doctor's 'X' appointments last month
->> d. Who are the patients who have seen more than one doctor
->> e. From what department have most patients been examined
->> f. What is the average number of patients examined per department
+>> a. What are the drugs (maximum and minimum number) prescribed<br/>
+>> b. What are the diagnoses of the last week<br/>
+>> c. What are the doctor's 'X' appointments last month<br/>
+>> d. Who are the patients who have seen more than one doctor<br/>
+>> e. From what department have most patients been examined<br/>
+>> f. What is the average number of patients examined per department<br/>
 > 5. Implement some functionality using triggers:
+>> a. Creation of trigger and function that will execute for every patent examined and diagnosis to update patient's medical file<br/>
+>> b. Creation of trigger and function that implement's the query d)<br/>
+> 6. Connect databse with JDBC client in Java using the proper library
+> 7. Write a Java console application that will execute the queries
+
 
 
 
