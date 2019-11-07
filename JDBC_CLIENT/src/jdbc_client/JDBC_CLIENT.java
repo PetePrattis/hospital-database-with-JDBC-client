@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 import java.util.Scanner;
 /**
  *
- * @author Παναγιώτης Πράττης
+ * @author Panagiotis Prattis / Παναγιώτης Πράττης
  */
 public class JDBC_CLIENT {
 
@@ -35,14 +35,13 @@ public class JDBC_CLIENT {
             System.out.println("Create statement successfully\n");                                  
             
             System.out.println("These are the queries:\n"
-                    + "a) Ποια είναι τα φάρμακα (μέγιστο και ελάχιστο πλήθος) που συνταγογραφούνται. Στο\n" +
-                    "αποτέλεσμα πρέπει να εμφανίζονται ποσότητα και όνομα φαρμάκου.\n"
-                    + "b) Ποιες είναι οι διαγνώσεις της τελευταίας εβδομάδας.\n"
-                    + "c) Ποια είναι τα ραντεβού του γιατρού ‘X’ τον τελευταία μήνα.\n"
-                    + "d) Ποιοι είναι οι ασθενείς που τους έχουν δει παραπάνω από ένας γιατροί.\n"
-                    + "e) Από ποιο τμήμα έχουν εξεταστεί οι περισσότεροι ασθενείς.\n"
-                    + "f) Ποιος είναι ο μέσος αριθμός των ασθενών που έχουν εξεταστεί (δηλαδή, υπάρχει\n" +
-                    "διάγνωση) ανά τμήμα.\n"
+                    + "a) What are the drugs (maximum and minimum number) prescribed. In\n" +
+                    "result show quantity and name of drug.\n"
+                    + "b) What are the diagnoses of the last week.\n"
+                    + "c) What are the doctor's 'X' appointments last month.\n"
+                    + "d) Who are the patients who have seen more than one doctor.\n"
+                    + "e) From what department have most patients been examined.\n"
+                    + "f) What is the average number of patients examined per department.\n"
                     ); 
             
             String querya="select c.cnt as max_min_counts, c.drug_name \n" +
@@ -76,9 +75,9 @@ public class JDBC_CLIENT {
                 "and a.diagnosis is not null\n" +
                 "and a.t > (select date(max(t))from appointments) - integer '7'";
             
-            //δεν θα χρησιμοποιηθεί το queryc αλλά αυτούσιος ο κώδικας του στο executeQuery() 
-            //για να γίνει σωστά η αρχικοποίηση του amka γιατί αλλιώς θα είναι με οτι 
-            //το αρχικοποιώ στην επόμενη γραμμή και δεν θα μπορώ να το αλλάξω
+            // queryc will not be used but its code in executeQuery() will,
+            // to initialize patient's or doctor's code (amka) correctly because otherwise it will be
+            // initialized to value of the next line and will not be able to change it
             String amka="";
             String queryc="select p.name as patient_name, p.surname as patient_surname, a.t as date\n" +
                 "from appointments a, doctors d, patients p\n" +
@@ -159,7 +158,7 @@ public class JDBC_CLIENT {
                 else if("c".equals(input)){
                     System.out.println("Give doctor AMKA");                    
                     amka = reader.nextLine();
-                    //rs = stmt.executeQuery(queryc);--δεν λειτουργεί γιατί πρεπει κάθε φορά να αρχικοποιούμε νέο amka 
+                    //rs = stmt.executeQuery(queryc);--will not work because every time I need to initialize new code (amka) 
                     rs = stmt.executeQuery("select p.name as patient_name, p.surname as patient_surname, a.t as date\n" +
                                             "from appointments a, doctors d, patients p\n" +
                                             "where a.patientamka=p.patientamka and a.doctoramka=d.doctoramka\n" +
